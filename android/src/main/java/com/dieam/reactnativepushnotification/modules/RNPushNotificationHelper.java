@@ -203,17 +203,17 @@ public class RNPushNotificationHelper {
                 }
             }
 
-            if (largeIcon != null) {
-                largeIconResId = res.getIdentifier(largeIcon, "mipmap", packageName);
-            } else {
-                largeIconResId = res.getIdentifier("ic_launcher", "mipmap", packageName);
-            }
-
-            Bitmap largeIconBitmap = BitmapFactory.decodeResource(res, largeIconResId);
-
-            if (largeIconResId != 0 && (largeIcon != null || Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)) {
-                notification.setLargeIcon(largeIconBitmap);
-            }
+//            if (largeIcon != null) {
+//                largeIconResId = res.getIdentifier(largeIcon, "mipmap", packageName);
+//            } else {
+//                largeIconResId = res.getIdentifier("ic_launcher", "mipmap", packageName);
+//            }
+//
+//            Bitmap largeIconBitmap = BitmapFactory.decodeResource(res, largeIconResId);
+//
+//            if (largeIconResId != 0 && (largeIcon != null || Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)) {
+//                notification.setLargeIcon(largeIconBitmap);
+//            }
 
             notification.setSmallIcon(smallIconResId);
             String bigText = bundle.getString("bigText");
@@ -263,6 +263,8 @@ public class RNPushNotificationHelper {
                 String color = bundle.getString("color");
                 if (color != null) {
                     notification.setColor(Color.parseColor(color));
+                } else {
+                    notification.setColor(Color.parseColor("#00B03D"));
                 }
             }
 
